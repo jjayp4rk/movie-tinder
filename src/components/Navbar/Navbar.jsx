@@ -9,7 +9,7 @@ import {
   NavLink,
   Fa
 } from "mdbreact";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import "./Navbar.scss";
 
 class NavigationBar extends React.Component {
@@ -30,8 +30,10 @@ class NavigationBar extends React.Component {
       <div>
         <Router>
           <Navbar expand="md" scrolling>
-            <NavbarBrand href="/">
-              <strong>Movie Tinder</strong>
+            <NavbarBrand>
+              <Link to="/">
+                <strong>Movie Tinder</strong>
+              </Link>
             </NavbarBrand>
             <NavbarToggler onClick={this.onClick} />
             <Collapse isOpen={this.state.collapse} navbar>
@@ -53,7 +55,6 @@ class NavigationBar extends React.Component {
                 <NavItem>
                   <NavLink to="#">
                     <Fa icon="facebook" />
-                    />
                   </NavLink>
                 </NavItem>
                 <NavItem>
