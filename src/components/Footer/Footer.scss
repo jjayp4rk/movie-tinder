@@ -1,0 +1,14 @@
+// Colors
+$black: #13191c;
+$yellow1: #fccf74;
+$yellow2: #fcc453;
+$blue1: #8ab0ab;
+$blue2: #3e505b;
+
+.page-footer {
+  background-color: $black;
+  font-size: 14px;
+  .container-fluid {
+    color: $yellow2;
+  }
+}

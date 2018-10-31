@@ -1,0 +1,22 @@
+// Colors
+$black: #13191c;
+$yellow1: #fccf74;
+$yellow2: #fcc453;
+$blue1: #8ab0ab;
+$blue2: #3e505b;
+
+.navbar {
+  background-color: $black;
+  a {
+    color: $yellow1;
+    opacity: 0.9;
+  }
+
+  a:hover {
+    color: $yellow2;
+  }
+}
+
+.navbar-toggler {
+  background-color: $yellow1;
+}
