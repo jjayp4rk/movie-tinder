@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getMoviesPopular } from "./actions";
+import React, { Component } from 'react';
+import MovieLiker from '../MovieLiker/MovieLiker';
+import { connect } from 'react-redux';
+import { getMoviesPopular } from './actions';
 
 class Home extends Component {
   componentDidMount() {
     this.props.getMoviesPopular();
   }
   render() {
-    const { data } = this.props;
-    if (!data.isFetched) {
+    const { home } = this.props;
+    if (!home.isFetched) {
       return <div>Loading...</div>;
-    } else if (!data.error) {
+    } else if (!home.error) {
       return (
         <div>
-          <h1>{data.movies[0].title}</h1>
+          <MovieLiker movies={home.movies} />
         </div>
       );
     }
@@ -23,7 +24,7 @@ class Home extends Component {
 
 export default connect(
   state => ({
-    data: state.home
+    home: state.home
   }),
   { getMoviesPopular }
 )(Home);

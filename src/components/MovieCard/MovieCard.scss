@@ -1,0 +1,19 @@
+.movie-card {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-back {
+  img {
+    opacity: 0.6;
+  }
+  .card-body {
+    position: absolute;
+    top: 0;
+    color: black;
+    .card-text {
+      color: black;
+    }
+  }
+}
