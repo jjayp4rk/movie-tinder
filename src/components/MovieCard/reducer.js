@@ -1,4 +1,4 @@
-import { GET_MOVIE_TRAILER } from './actions';
+import { GET_MOVIE_TRAILER } from "./actions";
 
 const INITIAL_STATE = {
   isFetched: false,

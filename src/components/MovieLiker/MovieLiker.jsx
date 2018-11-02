@@ -1,21 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addMovieToLikedList } from './actions';
-import RefreshCard from './components/RefreshCard';
-import {
-  Button,
-  Card,
-  CardBody,
-  CardImage,
-  CardTitle,
-  CardText
-} from 'mdbreact';
-import MovieCard from '../MovieCard/MovieCard';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addMovieToLikedList } from "./actions";
+import RefreshCard from "./components/RefreshCard.jsx";
+import { Button, Fa } from "mdbreact";
+import MovieCard from "../MovieCard/MovieCard";
 
-import './MovieLiker.scss';
+import "./MovieLiker.scss";
 
 class MovieLiker extends Component {
-  state = { cardIndex: 0 };
+  state = { cardIndex: 0, page: 1 };
+
+  componentDidMount() {
+    this.setState({ page: this.state.page + 1 });
+  }
 
   _clickLikeButton = () => {
     this.setState({ cardIndex: this.state.cardIndex + 1 });
@@ -34,15 +31,20 @@ class MovieLiker extends Component {
   render() {
     const { movies } = this.props;
     if (this.state.cardIndex > movies.length - 1) {
-      return <RefreshCard />;
+      return <RefreshCard page={this.state.page} />;
     }
     return (
       <div className="movie-liker">
         <div>
           <MovieCard movie={movies[this.state.cardIndex]} />
+          <br />
           <span>
-            <Button onClick={this._clickLikeButton}>LIKE</Button>
-            <Button onClick={this._clickDislikeButton}>DISLIKE</Button>
+            <Button color="success" onClick={this._clickLikeButton}>
+              <Fa icon="heart" size="2x" />
+            </Button>
+            <Button color="danger" onClick={this._clickDislikeButton}>
+              <Fa icon="close" size="3x" />
+            </Button>
           </span>
         </div>
       </div>

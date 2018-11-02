@@ -9,7 +9,7 @@ import {
   NavLink,
   Fa
 } from "mdbreact";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.scss";
 
 class NavigationBar extends React.Component {
@@ -28,31 +28,30 @@ class NavigationBar extends React.Component {
   render() {
     return (
       <div>
-        <Router>
-          <Navbar expand="md" scrolling>
+        <Navbar expand="md" scrolling>
+          <Link to="/">
             <NavbarBrand>
-              <Link to="/">
-                <strong>Movie Tinder</strong>
-              </Link>
+              <strong>Movie Tinder</strong>
             </NavbarBrand>
-            <NavbarToggler onClick={this.onClick} />
-            <Collapse isOpen={this.state.collapse} navbar>
-              <NavbarNav left>
-                <NavItem active>
-                  <NavLink to="#">Movies</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#">Random</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#">Link3</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#">Link4</NavLink>
-                </NavItem>
-              </NavbarNav>
-              <NavbarNav right>
-                <NavItem>
+          </Link>
+          <NavbarToggler onClick={this.onClick} />
+          <Collapse isOpen={this.state.collapse} navbar>
+            <NavbarNav left>
+              <NavItem active>
+                <NavLink to="/mymovies">My Movies</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#">My TV-Shows</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#">Link3</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#">Link4</NavLink>
+              </NavItem>
+            </NavbarNav>
+            <NavbarNav right>
+              {/* <NavItem>
                   <NavLink to="#">
                     <Fa icon="facebook" />
                   </NavLink>
@@ -66,11 +65,10 @@ class NavigationBar extends React.Component {
                   <NavLink to="#">
                     <Fa icon="instagram" />
                   </NavLink>
-                </NavItem>
-              </NavbarNav>
-            </Collapse>
-          </Navbar>
-        </Router>
+                </NavItem> */}
+            </NavbarNav>
+          </Collapse>
+        </Navbar>
       </div>
     );
   }

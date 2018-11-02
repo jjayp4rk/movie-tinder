@@ -7,9 +7,16 @@ const fetchData = params =>
     res => res.json()
   );
 
-export const fetchMoviePopular = async () => {
+const fetchDataPage = (params, page) =>
+  fetch(
+    `${BASE_URL}/${params}?api_key=${
+      API_KEY.API_KEY
+    }&language=en-US&page=${page}`
+  ).then(res => res.json());
+
+export const fetchMoviePopular = async page => {
   try {
-    return await fetchData("movie/popular");
+    return await fetchDataPage("movie/popular", String(page));
   } catch (err) {
     console.log(err);
   }
