@@ -1,6 +1,6 @@
-import React from "react";
-import { POSTER } from "../../../constants/api";
-import { CardImage } from "mdbreact";
+import React from 'react';
+import { POSTER } from '../../../constants/api';
+import { CardImage } from 'mdbreact';
 
 const Front = ({ movie }) => {
   return (

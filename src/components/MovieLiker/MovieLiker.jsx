@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { addMovieToLikedList } from "./actions";
-import { incrementPage } from "../Home/actions";
-import RefreshCard from "./components/RefreshCard.jsx";
-import { Button, Fa } from "mdbreact";
-import MovieCard from "../MovieCard/MovieCard";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addMovieToLikedList } from './actions';
+import { incrementPage } from '../Home/actions';
+import RefreshCard from './components/RefreshCard.jsx';
+import { Button, Fa } from 'mdbreact';
+import MovieCard from '../MovieCard/MovieCard';
 
-import "./MovieLiker.scss";
+import './MovieLiker.scss';
 
 let index = 0;
 
@@ -24,7 +24,10 @@ class MovieLiker extends Component {
       this.props.addMovieToLikedList({
         id: movie.id,
         title: movie.title,
-        image: movie.poster_path
+        image: movie.poster_path,
+        popularity: movie.popularity,
+        vote_average: movie.vote_average,
+        release_date: movie.release_date
       });
     } else {
       this.setState({ cardIndex: 0 });

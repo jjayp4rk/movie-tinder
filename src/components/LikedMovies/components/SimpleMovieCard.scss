@@ -1,0 +1,34 @@
+.simple-movie-card {
+  .card {
+    .card-body {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.76);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      h3 {
+        color: white;
+        font-size: 13px;
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%, -10%);
+      }
+      span {
+        position: absolute;
+        left: 85%;
+        bottom: 5%;
+        transform: translate(-85%, -5%);
+        color: white;
+        font-size: 12px;
+        max-height: 30%;
+        overflow: auto;
+        border: 1px solid white;
+        width: 43px;
+      }
+    }
+  }
+}

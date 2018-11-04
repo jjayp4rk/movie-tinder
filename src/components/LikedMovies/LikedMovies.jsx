@@ -1,11 +1,10 @@
-import React, { Component } from "react";
-import { removeMovieFromList } from "../MovieLiker/actions";
-import { connect } from "react-redux";
-import Slider from "react-slick";
-import "./LikedMovies.scss";
-import { Fa } from "mdbreact";
-import SimpleMovieCard from "./components/SimpleMovieCard";
-import LikeFront from "./components/LikeFront";
+import React, { Component } from 'react';
+import { removeMovieFromList } from '../MovieLiker/actions';
+import { connect } from 'react-redux';
+import Slider from 'react-slick';
+import './LikedMovies.scss';
+import { Fa } from 'mdbreact';
+import SimpleMovieCard from './components/SimpleMovieCard';
 
 class LikedMovies extends Component {
   render() {
@@ -14,21 +13,29 @@ class LikedMovies extends Component {
 
     const settings = {
       speed: 500,
+      infinite: true,
       slidesToShow: slides,
-      slidesToScroll: slides - 2,
+      slidesToScroll: slides,
       responsive: [
         {
           breakpoint: 1024,
           settings: {
             slidesToShow: 4,
-            slidesToScroll: 2
+            slidesToScroll: 4
           }
         },
         {
           breakpoint: 600,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 1
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 400,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
           }
         }
       ]
@@ -39,9 +46,9 @@ class LikedMovies extends Component {
         <h1>
           <Fa icon="heart" color="#db5461" /> MOVIES
         </h1>
-        <Slider {...settings}>
+        <Slider ref={c => (this.slider = c)} {...settings}>
           {likedMovies.map((movie, index) => (
-            <LikeFront key={index} movie={movie} />
+            <SimpleMovieCard key={index} movie={movie} />
           ))}
         </Slider>
       </div>

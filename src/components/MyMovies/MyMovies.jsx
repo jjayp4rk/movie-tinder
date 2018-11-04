@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import { removeMovieFromList } from "../MovieLiker/actions";
-import { connect } from "react-redux";
-import LikedMovies from "../LikedMovies/LikedMovies";
-import "./MyMovies.scss";
+import React, { Component } from 'react';
+import { removeMovieFromList } from '../MovieLiker/actions';
+import { connect } from 'react-redux';
+import LikedMovies from '../LikedMovies/LikedMovies';
+import SimilarMovies from '../SimilarMovies/SimilarMovies';
+import './MyMovies.scss';
 
 class MyMovies extends Component {
   render() {
@@ -11,7 +12,9 @@ class MyMovies extends Component {
         <div className="mb-4 mt-2">
           <LikedMovies />
         </div>
-        <h1>SIMILAR MOVIES</h1>
+        <div className="mb-1 mt-1">
+          <SimilarMovies />
+        </div>
       </div>
     );
   }

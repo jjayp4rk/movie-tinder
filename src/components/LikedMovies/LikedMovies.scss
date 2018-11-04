@@ -6,30 +6,52 @@ $blue1: #3891a6;
 $blue2: #23395b;
 
 .liked-movies {
+  max-height: 930px;
   h1 {
     font-size: 30px;
+    color: $yellow;
     .fa {
       color: $pink;
     }
   }
   .card {
+    box-shadow: none;
     background: transparent;
     padding-right: 4px;
     padding-left: 4px;
     width: 100%;
     img {
-      max-height: 310px;
-      width: 221px;
+      max-height: 300px;
+      width: 218px;
     }
   }
   .slick-slider {
-    background-image: radial-gradient($blue1, $blue1, $blue2);
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 7px;
-    padding-bottom: 7px;
     min-height: 140px;
     max-height: 325px;
+    .slick-arrow {
+      color: none;
+    }
+    .slick-prev {
+      height: 100%;
+      background: $pink;
+      -webkit-clip-path: polygon(0% 50%, 50% 0%, 50% 100%);
+      clip-path: polygon(0% 50%, 50% 0%, 50% 100%);
+      opacity: 0.4;
+    }
+    .slick-next {
+      height: 100%;
+      background: $pink;
+      -webkit-clip-path: polygon(100% 50%, 50% 0%, 50% 100%);
+      clip-path: polygon(100% 50%, 50% 0%, 50% 100%);
+      opacity: 0.4;
+    }
+
+    .slick-prev::before {
+      color: $pink;
+    }
+    .slick-next::before {
+      color: $pink;
+    }
   }
 }
 
