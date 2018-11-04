@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { removeMovieFromList } from "../MovieLiker/actions";
 import { connect } from "react-redux";
 import Slider from "react-slick";
-import { POSTER } from "../../constants/api";
 import "./LikedMovies.scss";
-import { CardImage, Card, Fa } from "mdbreact";
+import { Fa } from "mdbreact";
+import SimpleMovieCard from "./components/SimpleMovieCard";
+import LikeFront from "./components/LikeFront";
 
 class LikedMovies extends Component {
   render() {
@@ -12,23 +13,35 @@ class LikedMovies extends Component {
     const slides = likedMovies.length > 5 ? 5 : likedMovies.length;
 
     const settings = {
-      dots: true,
       speed: 500,
       slidesToShow: slides,
-      slidesToScroll: slides - 2
+      slidesToScroll: slides - 2,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        }
+      ]
     };
 
     return (
       <div className="liked-movies">
+        <h1>
+          <Fa icon="heart" color="#db5461" /> MOVIES
+        </h1>
         <Slider {...settings}>
           {likedMovies.map((movie, index) => (
-            <Card>
-              <CardImage
-                key={index}
-                className="img-fluid"
-                src={`${POSTER}/${movie.image}`}
-              />
-            </Card>
+            <LikeFront key={index} movie={movie} />
           ))}
         </Slider>
       </div>

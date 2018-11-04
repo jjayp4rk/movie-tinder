@@ -8,8 +8,7 @@ class MyMovies extends Component {
   render() {
     return (
       <div className="my-movies">
-        <h1>LIKED MOVIES</h1>
-        <div className="mb-4">
+        <div className="mb-4 mt-2">
           <LikedMovies />
         </div>
         <h1>SIMILAR MOVIES</h1>

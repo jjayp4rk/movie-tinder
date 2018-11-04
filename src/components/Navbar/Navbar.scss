@@ -1,22 +1,31 @@
 // Colors
 $black: #13191c;
 $yellow1: #fccf74;
-$yellow2: #fcc453;
-$blue1: #8ab0ab;
-$blue2: #3e505b;
+$orange: #e3655b;
+$pink: #db5461;
+$blue1: #3891a6;
+$blue2: #23395b;
 
-.navbar {
-  background-color: $black;
-  a {
-    color: $yellow1;
-    opacity: 0.9;
-  }
+// .navbar {
+//   .navbar-dark {
+//     .navbar-brand {
+//       color: $yellow1;
+//     }
+//   }
+// }
 
-  a:hover {
-    color: $yellow2;
-  }
-}
+// .navbar {
+//   background-color: $blue2;
+//   a {
+//     color: $yellow1;
+//     opacity: 0.9;
+//   }
 
-.navbar-toggler {
-  background-color: $yellow1;
-}
+//   a:hover {
+//     color: $orange;
+//   }
+// }
+
+// .navbar-toggler-icon {
+//   color: $yellow1;
+// }

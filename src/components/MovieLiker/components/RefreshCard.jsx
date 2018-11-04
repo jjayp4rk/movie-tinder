@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getMoviesPopular } from "../../Home/actions";
+import { getMoviesPopular, incrementPage } from "../../Home/actions";
 import { Card, CardBody, Fa, Button } from "mdbreact";
 import PugImage from "../../../images/pug1.jpeg";
 
-const RefreshCard = ({ getMoviesPopular, page }) => (
+const RefreshCard = ({ getMoviesPopular, incrementPage, page }) => (
   <div className="refresh-card">
     <Card>
       <CardBody>
@@ -14,7 +14,11 @@ const RefreshCard = ({ getMoviesPopular, page }) => (
         <h1>No more movies!</h1>
         <p>Get more movies and start liking!</p>
 
-        <Button onClick={() => getMoviesPopular(page)}>
+        <Button
+          onClick={() => {
+            incrementPage();
+          }}
+        >
           <Fa icon="refresh" size="3x" />
         </Button>
       </CardBody>
@@ -24,5 +28,5 @@ const RefreshCard = ({ getMoviesPopular, page }) => (
 
 export default connect(
   null,
-  { getMoviesPopular }
+  { getMoviesPopular, incrementPage }
 )(RefreshCard);

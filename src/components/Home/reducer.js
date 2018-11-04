@@ -1,15 +1,21 @@
-import { GET_MOVIES_POPULAR } from "./actions";
+import { GET_MOVIES_POPULAR, INCREMENT_PAGE } from "./actions";
 
 const INITIAL_STATE = {
   isFetched: false,
   error: null,
-  movies: null
+  movies: null,
+  page: 1
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case `${GET_MOVIES_POPULAR}_PENDING`:
-      return INITIAL_STATE;
+      return {
+        ...state,
+        error: null,
+        isFetched: false,
+        movies: null
+      };
     case `${GET_MOVIES_POPULAR}_FULFILLED`:
       return {
         ...state,
@@ -21,6 +27,11 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         isFetched: true,
         error: action.payload
+      };
+    case `${INCREMENT_PAGE}`:
+      return {
+        ...state,
+        page: state.page + 1
       };
     default:
       return state;

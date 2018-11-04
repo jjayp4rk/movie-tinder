@@ -9,7 +9,6 @@ import {
   NavLink,
   Fa
 } from "mdbreact";
-import { Link } from "react-router-dom";
 import "./Navbar.scss";
 
 class NavigationBar extends React.Component {
@@ -28,44 +27,39 @@ class NavigationBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar expand="md" scrolling>
-          <Link to="/">
-            <NavbarBrand>
-              <strong>Movie Tinder</strong>
-            </NavbarBrand>
-          </Link>
+        <Navbar color="unique-color-dark" dark expand="md" scrolling>
+          <NavbarBrand href="/">
+            <strong>
+              MOVIE <Fa icon="heart" /> TINDER
+            </strong>
+          </NavbarBrand>
           <NavbarToggler onClick={this.onClick} />
           <Collapse isOpen={this.state.collapse} navbar>
             <NavbarNav left>
               <NavItem active>
-                <NavLink to="/mymovies">My Movies</NavLink>
+                <NavLink to="/mymovies">MOVIES</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="#">My TV-Shows</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="#">Link3</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="#">Link4</NavLink>
+                <NavLink to="/tvshows">TV SHOWS</NavLink>
               </NavItem>
             </NavbarNav>
             <NavbarNav right>
               {/* <NavItem>
-                  <NavLink to="#">
-                    <Fa icon="facebook" />
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#">
-                    <Fa icon="twitter" />
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#">
-                    <Fa icon="instagram" />
-                  </NavLink>
-                </NavItem> */}
+                <NavLink to="#">
+                  <Fa icon="facebook" />
+                  />
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#">
+                  <Fa icon="twitter" />
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#">
+                  <Fa icon="instagram" />
+                </NavLink>
+              </NavItem> */}
             </NavbarNav>
           </Collapse>
         </Navbar>

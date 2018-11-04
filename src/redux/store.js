@@ -12,6 +12,19 @@ const enhancers = compose(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-let store = createStore(reducers, undefined, enhancers);
+// let store = createStore(reducers, undefined, enhancers);
 
-export default store;
+// export default store;
+
+const persistConfig = {
+  key: "root",
+  storage
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+export default () => {
+  let store = createStore(persistedReducer, enhancers);
+  let persistor = persistStore(store);
+  return { store, persistor };
+};
