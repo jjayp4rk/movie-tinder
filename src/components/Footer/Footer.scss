@@ -10,6 +10,14 @@ $blue2: #23395b;
   background-color: $blue2;
   font-size: 14px;
   .container-fluid {
-    color: $yellow1;
+    color: white;
+  }
+  .footer-copyright {
+    a {
+      color: $pink;
+    }
+    a:hover {
+      color: $yellow1;
+    }
   }
 }

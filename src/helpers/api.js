@@ -14,6 +14,14 @@ const fetchDataPage = (params, page) =>
     }&language=en-US&page=${page}`
   ).then(res => res.json());
 
+export const fetchMovie = async movieId => {
+  try {
+    return await fetchData(`movie/${movieId}`);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const fetchMoviePopular = async page => {
   try {
     return await fetchDataPage("movie/popular", String(page));

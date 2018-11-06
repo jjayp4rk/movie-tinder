@@ -1,0 +1,31 @@
+.movie-page {
+  height: 100%;
+  .genre-icon {
+    height: 28px;
+    width: 28px;
+    padding: 0px;
+  }
+  h1 {
+    position: absolute;
+    top: 120;
+    transform: translate(10%, -120%);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  p {
+    width: 100%;
+    color: white;
+    text-align: left;
+    margin-top: 0.6em;
+    padding-left: 0.4em;
+    font-size: 22px;
+  }
+}
+
+.backdrop-img {
+  width: 100%;
+  opacity: 0.5;
+}
+
+//1.77

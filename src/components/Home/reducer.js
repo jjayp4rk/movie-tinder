@@ -1,10 +1,11 @@
-import { GET_MOVIES_POPULAR, INCREMENT_PAGE } from "./actions";
+import { GET_MOVIES_POPULAR, INCREMENT_PAGE, SET_CARD_INDEX } from "./actions";
 
 const INITIAL_STATE = {
   isFetched: false,
   error: null,
   movies: null,
-  page: 1
+  page: 1,
+  index: 0
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -32,6 +33,12 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         page: state.page + 1
+      };
+
+    case `${SET_CARD_INDEX}`:
+      return {
+        ...state,
+        index: Number(action.payload)
       };
     default:
       return state;

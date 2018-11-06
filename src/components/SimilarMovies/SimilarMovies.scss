@@ -1,0 +1,31 @@
+$black: #13191c;
+$yellow: #fccf74;
+$orange: #e3655b;
+$pink: #db5461;
+$blue1: #3891a6;
+$blue2: #23395b;
+
+.similar-movies {
+  h1 {
+    font-size: 30px;
+    color: $yellow;
+    .fa {
+      color: $pink;
+    }
+  }
+}
+
+.similar-movies-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .simple-movie-card {
+    width: 24%;
+    padding-bottom: 15px;
+    .card {
+      width: 100%;
+    }
+  }
+}

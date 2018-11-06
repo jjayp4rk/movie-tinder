@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+/Windows 10 Cinema Icons
+/Color Cinema Icons
 
 # testing
 /coverage

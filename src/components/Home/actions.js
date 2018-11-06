@@ -2,7 +2,7 @@ import { fetchMoviePopular } from "../../helpers";
 
 export const GET_MOVIES_POPULAR = "GET_MOVIES_POPULAR";
 export const INCREMENT_PAGE = "INCREMENT_PAGE";
-export const GO_TO_PAGE = "GO_TO_PAGE";
+export const SET_CARD_INDEX = "SET_CARD_INDEX";
 
 export const getMoviesPopular = page => {
   const data = fetchMoviePopular(page);
@@ -19,9 +19,9 @@ export const incrementPage = () => {
   };
 };
 
-// export const goToPage = pageNum => {
-//   return {
-//     type: GO_TO_PAGE,
-//     payload: pageNum
-//   };
-// };
+export const setCardIndex = index => {
+  return {
+    type: SET_CARD_INDEX,
+    payload: index
+  };
+};

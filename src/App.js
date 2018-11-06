@@ -10,6 +10,7 @@ import NavigationBar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import MyMovies from "./components/MyMovies/MyMovies";
+import MoviePage from "./components/MoviePage/MoviePage";
 
 const { persistor, store } = Store();
 
@@ -24,6 +25,7 @@ class App extends Component {
               <div className="container">
                 <Route exact path="/" component={Home} />
                 <Route exact path="/mymovies" component={MyMovies} />
+                <Route exact path="/movie/:id" component={MoviePage} />
               </div>
               <Footer />
             </div>

@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { removeMovieFromList } from '../MovieLiker/actions';
-import { connect } from 'react-redux';
-import Slider from 'react-slick';
-import './LikedMovies.scss';
-import { Fa } from 'mdbreact';
-import SimpleMovieCard from './components/SimpleMovieCard';
+import React, { Component } from "react";
+import { removeMovieFromList } from "../MovieLiker/actions";
+import { connect } from "react-redux";
+import Slider from "react-slick";
+import "./LikedMovies.scss";
+import { Fa } from "mdbreact";
+import SimpleMovieCard from "./components/SimpleMovieCard";
 
 class LikedMovies extends Component {
   render() {
     const likedMovies = this.props.likedMovies;
-    const slides = likedMovies.length > 5 ? 5 : likedMovies.length;
+    const slides = likedMovies.length > 6 ? 6 : likedMovies.length;
 
     const settings = {
       speed: 500,
@@ -20,22 +20,22 @@ class LikedMovies extends Component {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4
+            slidesToShow: 5,
+            slidesToScroll: 5
           }
         },
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3
+            slidesToShow: 4,
+            slidesToScroll: 4
           }
         },
         {
           breakpoint: 400,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
+            slidesToShow: 3,
+            slidesToScroll: 3
           }
         }
       ]
