@@ -40,9 +40,7 @@ const icons = {
 };
 
 const Icon = ({ genre }) => {
-  console.log(genre);
   let icon = icons[genre];
-  console.log(icon);
   return <img className="genre-icon" src={icon} alt={genre} />;
 };
 

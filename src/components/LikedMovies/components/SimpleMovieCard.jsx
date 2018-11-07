@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { CardImage, Card, CardBody, Fa } from "mdbreact";
 import { POSTER } from "../../../constants/api";
-import { Link } from "react-dom";
 import "./SimpleMovieCard.scss";
 
 class SimpleMovieCard extends Component {

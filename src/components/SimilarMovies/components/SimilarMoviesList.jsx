@@ -1,26 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
+import SimpleMovieCard from "../../LikedMovies/components/SimpleMovieCard";
 
-class SimilarMoviesList extends Component {
-  state = {
-    movies: null,
-    loading: false,
-    apiIndex: 0
-  };
-
-  componentDidUpdate(prevProps) {
-    this.setState({
-      loading: false,
-      movies: this.props.movies
-    });
-  }
-
-  getMoreMovies = async () => {
-    const { getMoviesSimilar, liked } = this.props;
-  };
-
-  render() {
-    return <div />;
-  }
-}
+const SimilarMoviesList = ({ movies }) => {
+  return (
+    <div className="similar-movies-list">
+      {movies.map((movie, index) => (
+        <SimpleMovieCard key={index} movie={movie} />
+      ))}
+    </div>
+  );
+};
 
 export default SimilarMoviesList;

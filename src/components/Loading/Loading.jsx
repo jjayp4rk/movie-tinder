@@ -8,7 +8,7 @@ const Loading = () => {
       <GridLoader sizeUnit={"px"} size={74} color={"#DB5461"} />
       <p>
         M O V I E S{"  "}L O A D I N G
-        <span role="image" aria-label="smile">
+        <span aria-label="smile">
           {"  "}
           😎
         </span>

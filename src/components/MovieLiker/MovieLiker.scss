@@ -15,6 +15,12 @@
     border: 3px solid rgba(255, 255, 255, 0.438);
     box-shadow: none;
   }
+  .btn:before {
+    border: 3px solid rgba(255, 255, 255, 0.438);
+  }
+  .btn:after {
+    border: 3px solid rgba(255, 255, 255, 0.438);
+  }
 }
 
 .refresh-card {

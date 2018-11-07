@@ -15,7 +15,8 @@ class NavigationBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapse: false
+      collapse: false,
+      activetab: 0
     };
     this.onClick = this.onClick.bind(this);
   }
@@ -24,11 +25,22 @@ class NavigationBar extends React.Component {
       collapse: !this.state.collapse
     });
   }
+
+  navItemToggle = e => {
+    let tab = e.target.name;
+    this.setState({
+      activetab: Number(tab)
+    });
+  };
+
+  toggleActive() {
+    return;
+  }
   render() {
     return (
       <div>
         <Navbar color="unique-color-dark" dark expand="md" scrolling>
-          <NavbarBrand href="/">
+          <NavbarBrand onClick={this.navItemToggle} name="0" href="/">
             <strong>
               MOVIE <Fa icon="heart" /> TINDER
             </strong>
@@ -36,30 +48,22 @@ class NavigationBar extends React.Component {
           <NavbarToggler onClick={this.onClick} />
           <Collapse isOpen={this.state.collapse} navbar>
             <NavbarNav left>
-              <NavItem active>
-                <NavLink to="/mymovies">MOVIES</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/tvshows">TV SHOWS</NavLink>
-              </NavItem>
-            </NavbarNav>
-            <NavbarNav right>
-              {/* <NavItem>
-                <NavLink to="#">
-                  <Fa icon="facebook" />
-                  />
+              <NavItem
+                onClick={this.navItemToggle}
+                active={this.state.activetab === 1 ? true : false}
+              >
+                <NavLink name="1" to="/mymovies">
+                  MOVIES
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink to="#">
-                  <Fa icon="twitter" />
+              <NavItem
+                onClick={this.navItemToggle}
+                active={this.state.activetab === 2 ? true : false}
+              >
+                <NavLink name="2" to="/tvshows">
+                  TV SHOWS
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink to="#">
-                  <Fa icon="instagram" />
-                </NavLink>
-              </NavItem> */}
             </NavbarNav>
           </Collapse>
         </Navbar>

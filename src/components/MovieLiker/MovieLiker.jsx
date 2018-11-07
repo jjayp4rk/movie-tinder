@@ -47,7 +47,6 @@ class MovieLiker extends Component {
   };
 
   componentWillUnmount() {
-    // console.log(this.state.cardIndex);
     this.props.setCardIndex(this.state.cardIndex);
   }
 

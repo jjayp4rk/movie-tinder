@@ -3,17 +3,25 @@ import Loading from "../Loading/Loading";
 import { connect } from "react-redux";
 import { getMoviePage } from "./actions";
 import { getMovieTrailer } from "../MovieCard/actions";
-import YouTube from "react-youtube";
 import { POSTER } from "../../constants/api";
 import { Fa } from "mdbreact";
 import "./MoviePage.scss";
 import Icon from "./components/Icon";
+import ReactPlayer from "react-player";
+
+const YouTubeUrl = key => {
+  return `https://www.youtube.com/watch?v=${key}`;
+};
 
 class MoviePage extends Component {
-  state = { loading: true };
+  state = { loading: false };
 
   componentDidMount() {
+    this.setState({
+      loading: true
+    });
     this.props.getMoviePage(this.props.match.params.id);
+    this.props.getMovieTrailer(this.props.match.params.id);
     this.setState({
       loading: false
     });
@@ -21,21 +29,30 @@ class MoviePage extends Component {
 
   render() {
     const { movie } = this.props.movie;
-
+    const { videos } = this.props.trailers;
     return (
       <div>
-        {this.state.loading || movie === null ? (
+        {this.state.loading || movie === null || videos === null ? (
           <Loading />
         ) : (
           <div className="movie-page mt-5">
-            <a href={`${movie.homepage}`}>
-              <img
-                className="backdrop-img"
-                src={`${POSTER}/${movie.backdrop_path}`}
-                alt={`back-drop-${movie.title}`}
+            <div className="player-wrapper">
+              <ReactPlayer
+                url={YouTubeUrl(videos[0].key)}
+                width="100%"
+                height="100%"
+                config={{
+                  youtube: {
+                    playerVars: { showinfo: 1 }
+                  }
+                }}
               />
-            </a>
-
+            </div>
+            <img
+              className="backdrop-img"
+              src={`${POSTER}/${movie.backdrop_path}`}
+              alt={`back-drop-${movie.title}`}
+            />
             <h1>{movie.title}</h1>
             <p>
               <Fa icon="calendar" /> {movie.release_date}
