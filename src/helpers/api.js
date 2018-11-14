@@ -14,9 +14,9 @@ const fetchDataPage = (params, page) =>
     }&language=en-US&page=${page}`
   ).then(res => res.json());
 
-export const fetchMovie = async movieId => {
+export const fetchMovie = async id => {
   try {
-    return await fetchData(`movie/${movieId}`);
+    return await fetchData(`movie/${id}`);
   } catch (err) {
     console.log(err);
   }
@@ -30,17 +30,17 @@ export const fetchMoviePopular = async page => {
   }
 };
 
-export const fetchMoviesSimilar = async movieId => {
+export const fetchMoviesSimilar = async id => {
   try {
-    return await fetchData(`movie/${movieId}/similar`);
+    return await fetchData(`movie/${id}/similar`);
   } catch (err) {
     console.log(err);
   }
 };
 
-export const fetchMovieTrailers = async movieId => {
+export const fetchMovieTrailers = async id => {
   try {
-    return await fetchData(`movie/${movieId}/videos`);
+    return await fetchData(`movie/${id}/videos`);
   } catch (err) {
     console.log(err);
   }

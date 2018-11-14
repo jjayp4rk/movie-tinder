@@ -14,17 +14,12 @@ const YouTubeUrl = key => {
 };
 
 class MoviePage extends Component {
-  state = { loading: false };
+  state = { loading: true };
 
   componentDidMount() {
-    this.setState({
-      loading: true
-    });
     this.props.getMoviePage(this.props.match.params.id);
     this.props.getMovieTrailer(this.props.match.params.id);
-    this.setState({
-      loading: false
-    });
+    this.setState({ loading: false });
   }
 
   render() {
@@ -37,22 +32,27 @@ class MoviePage extends Component {
         ) : (
           <div className="movie-page mt-5">
             <div className="player-wrapper">
-              <ReactPlayer
-                url={YouTubeUrl(videos[0].key)}
-                width="100%"
-                height="100%"
-                config={{
-                  youtube: {
-                    playerVars: { showinfo: 1 }
-                  }
-                }}
-              />
+              {!videos[0].key ? null : (
+                <ReactPlayer
+                  url={YouTubeUrl(videos[0].key)}
+                  width="100%"
+                  height="100%"
+                  config={{
+                    youtube: {
+                      playerVars: { showinfo: 1 }
+                    }
+                  }}
+                />
+              )}
             </div>
-            <img
-              className="backdrop-img"
-              src={`${POSTER}/${movie.backdrop_path}`}
-              alt={`back-drop-${movie.title}`}
-            />
+            {movie.backdrop_path ? (
+              <img
+                className="backdrop-img"
+                src={`${POSTER}/${movie.backdrop_path}`}
+                alt={`back-drop-${movie.title}`}
+              />
+            ) : null}
+
             <h1>{movie.title}</h1>
             <p>
               <Fa icon="calendar" /> {movie.release_date}

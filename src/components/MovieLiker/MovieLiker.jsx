@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addMovieToLikedList } from "./actions";
-import { incrementPage, setCardIndex } from "../Home/actions";
+import { setCardIndex } from "../Home/actions";
 import RefreshCard from "./components/RefreshCard.jsx";
 import { Button, Fa } from "mdbreact";
 import MovieCard from "../MovieCard/MovieCard";
@@ -79,7 +79,6 @@ export default connect(
     home: state.home
   }),
   {
-    incrementPage,
     addMovieToLikedList,
     setCardIndex
   }

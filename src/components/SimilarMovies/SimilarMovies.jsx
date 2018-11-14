@@ -6,26 +6,51 @@ import { Fa } from "mdbreact";
 import "./SimilarMovies.scss";
 import SimilarMoviesList from "./components/SimilarMoviesList";
 import FilterBar from "./components/FilterBar";
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const rand = Math.floor(Math.random() * (i + 1));
-    [array[i], array[rand]] = [array[rand], array[i]];
-  }
-  return array;
-}
+import PaginationBar from "../Pagination/PaginationBar";
 
 class SimilarMovies extends Component {
-  state = {
-    loading: false,
-    genre: "None"
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      genre: "None",
+      genres: [],
+      currentPage: 1,
+      pagesTotal:
+        null || Math.ceil(this.props.similarMovies.movies.length / 20),
+      neighbors: 4
+    };
+  }
+  // state = {
+  //   loading: false,
+  //   genre: "None",
+  //   genres: [],
+  //   currentPage: 1,
+  //   pagesTotal: Math.ceil(this.props.similarMovies.movies.length / 20),
+  //   neighbors: 4
+  // };
+
+  goToPage = e => {
+    this.setState({
+      currentPage: e.target.value
+    });
   };
 
-  componentDidMount() {
-    this.setState({ loading: true });
-    this.props.likedMovie.map(movie => this.props.getMoviesSimilar(movie.id));
-    this.setState({ loading: false });
-  }
+  nextPage = () => {
+    console.log("HEKFL");
+    if (this.state.currentPage < this.state.pagesTotal)
+      this.setState({
+        currentPage: this.state.currentPage + 1
+      });
+  };
+
+  prevPage = () => {
+    if (this.state.currentPage > 1) {
+      this.setState({
+        currentPage: this.state.currentPage - 1
+      });
+    }
+  };
 
   setGenre = e => {
     this.setState({ loading: true });
@@ -45,16 +70,30 @@ class SimilarMovies extends Component {
     if (this.state.loading) {
       return <Loading />;
     } else {
-      const movies = shuffleArray(
-        this.filterByGenre(this.props.similarMovies.movies, this.state.genre)
+      let movies = this.filterByGenre(
+        this.props.similarMovies.movies,
+        this.state.genre
       );
+      // movies = this.props.similarMovies.movies;
       return (
         <div className="similar-movies">
           <h1>
             <Fa icon="star" color="#db5461" /> MOVIES
           </h1>
           <FilterBar setGenre={this.setGenre} />
-          <SimilarMoviesList movies={movies} />
+          <SimilarMoviesList
+            movies={movies.slice(
+              (this.state.currentPage - 1) * 20,
+              this.state.currentPage * 20
+            )}
+          />
+          <PaginationBar
+            currentPage={this.state.currentPage}
+            pagesTotal={this.state.pagesTotal}
+            nextPage={this.nextPage}
+            prevPage={this.prevPage}
+            goToPage={this.goToPage}
+          />
         </div>
       );
     }

@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   isFetched: false,
   error: null,
   movies: null,
-  page: 1,
+  page: Math.floor(Math.random() * 30),
   index: 0
 };
 
@@ -32,7 +32,7 @@ export default (state = INITIAL_STATE, action) => {
     case `${INCREMENT_PAGE}`:
       return {
         ...state,
-        page: state.page + 1
+        page: Math.floor(Math.random() * 30)
       };
 
     case `${SET_CARD_INDEX}`:

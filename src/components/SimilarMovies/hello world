@@ -1,0 +1,31 @@
+  // let pagesArray = makePaginationArray(pagesTotal);
+  // const paginationBar = pagesArray.map(page => (
+  //   <PageItem key={page} active={page === currentPage}>
+  //     <PageLink className="page-link">
+  //       {page} <span className="sr-only" />
+  //     </PageLink>
+  //   </PageItem>
+  // ));
+  // return (
+  //   <div className="pagination-bar">
+  //     <Pagination className="pagination-circle-large">
+  //       <PageLink className="page-link">
+  //         <span>First</span>
+  //       </PageLink>
+  //       <PageItem disabled={currentPage === 1 ? true : false}>
+  //         <PageLink aria-label="Previous" onClick={prevPage}>
+  //           <span aria-hidden="true">&laquo;</span>
+  //           <span className="sr-only">Previous</span>
+  //         </PageLink>
+  //       </PageItem>
+  //       {paginationBar}
+  //       <PageItem>
+  //         <PageLink className="page-link" onClick={nextPage}>
+  //           &raquo;
+  //         </PageLink>
+  //       </PageItem>
+  //       <PageLink className="page-link">
+  //         <span>Last</span>
+  //       </PageLink>
+  //     </Pagination>
+  //   </div>

@@ -1,8 +1,8 @@
-import React from 'react';
-import { POSTER } from '../../../constants/api';
-import { CardBody, CardImage, CardTitle, Fa } from 'mdbreact';
-import YouTube from 'react-youtube';
-import '../MovieCard.scss';
+import React from "react";
+import { POSTER } from "../../../constants/api";
+import { CardBody, CardImage, CardTitle, Fa } from "mdbreact";
+import YouTube from "react-youtube";
+import "../MovieCard.scss";
 
 const Back = ({ movie, trailers }) => {
   return (
@@ -17,11 +17,11 @@ const Back = ({ movie, trailers }) => {
         <p>{movie.overview}</p>
         <ul className="list-unstyled list-inline font-small">
           <li className="list-inline-item pr-2">
-            <Fa icon="calendar" /> {''}
+            <Fa icon="calendar" /> {""}
             {movie.release_date}
           </li>
           <li className="list-inline-item pr-2">
-            <Fa icon="star" /> {''}
+            <Fa icon="star" /> {""}
             {movie.vote_average}
           </li>
         </ul>
@@ -29,10 +29,9 @@ const Back = ({ movie, trailers }) => {
           <YouTube
             videoId={trailers[0].key}
             opts={{
-              height: '35%',
-              width: '100%',
+              height: "35%",
+              width: "100%",
               playerVars: {
-                // https://developers.google.com/youtube/player_parameters
                 autoplay: 0
               }
             }}
