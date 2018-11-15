@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { addMovieToLikedList } from "./actions";
-import { setCardIndex } from "../Home/actions";
-import RefreshCard from "./components/RefreshCard.jsx";
-import { Button, Fa } from "mdbreact";
-import MovieCard from "../MovieCard/MovieCard";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addMovieToLikedList } from './actions';
+import { setCardIndex } from '../Home/actions';
+import RefreshCard from './components/RefreshCard.jsx';
+import { Button, Fa } from 'mdbreact';
+import MovieCard from '../MovieCard/MovieCard';
 
-import "./MovieLiker.scss";
+import './MovieLiker.scss';
 
 class MovieLiker extends Component {
   state = { cardIndex: this.props.home.index };

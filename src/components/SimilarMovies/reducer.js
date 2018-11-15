@@ -1,4 +1,4 @@
-import { GET_MOVIES_SIMILAR, GET_MOVIES_SIMILAR_FIRST } from "./actions";
+import { GET_MOVIES_SIMILAR, GET_MOVIES_SIMILAR_FIRST } from './actions';
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -11,7 +11,8 @@ function shuffleArray(array) {
 const INITIAL_STATE = {
   movies: [],
   isFetched: false,
-  error: null
+  error: null,
+  length: 1
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -28,10 +29,18 @@ export default (state = INITIAL_STATE, action) => {
         ...new Set(unfilteredMovies.map(v => JSON.stringify(v)))
       ].map(v => JSON.parse(v));
 
+      let movies;
+
+      if (state.length !== filteredMovies.length) {
+        movies = shuffleArray(filteredMovies);
+      } else {
+        movies = filteredMovies;
+      }
       return {
         ...state,
         isFetched: true,
-        movies: shuffleArray(filteredMovies)
+        movies: movies,
+        length: filteredMovies.length
       };
     case `${GET_MOVIES_SIMILAR}_REJECTED`:
       return {
@@ -39,20 +48,7 @@ export default (state = INITIAL_STATE, action) => {
         isFetched: true,
         error: action.payload
       };
-    // case `${GET_MOVIES_SIMILAR_FIRST}_PENDING`:
-    //   return INITIAL_STATE;
-    // case `${GET_MOVIES_SIMILAR_FIRST}_FULFILLED`:
-    //   return {
-    //     ...state,
-    //     isFetched: true,
-    //     movies: [...state.movies, ...action.payload.results]
-    //   };
-    // case `${GET_MOVIES_SIMILAR_FIRST}_REJECTED`:
-    //   return {
-    //     ...state,
-    //     isFetched: true,
-    //     error: action.payload
-    //   };
+
     default:
       return state;
   }

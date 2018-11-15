@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import MovieLiker from "../MovieLiker/MovieLiker";
-import { connect } from "react-redux";
-import { getMoviesPopular } from "./actions";
-import Loading from "../Loading/Loading";
+import React, { Component } from 'react';
+import MovieLiker from '../MovieLiker/MovieLiker';
+import { connect } from 'react-redux';
+import { getMoviesPopular } from './actions';
+import Loading from '../Loading/Loading';
 
 class Home extends Component {
   componentDidMount() {

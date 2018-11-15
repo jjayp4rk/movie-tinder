@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getMoviesSimilar } from "./actions";
-import Loading from "../Loading/Loading";
-import { Fa } from "mdbreact";
-import "./SimilarMovies.scss";
-import SimilarMoviesList from "./components/SimilarMoviesList";
-import FilterBar from "./components/FilterBar";
-import PaginationBar from "../Pagination/PaginationBar";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getMoviesSimilar } from './actions';
+import Loading from '../Loading/Loading';
+import { Fa } from 'mdbreact';
+import './SimilarMovies.scss';
+import SimilarMoviesList from './components/SimilarMoviesList';
+import FilterBar from './components/FilterBar';
+import PaginationBar from '../Pagination/PaginationBar';
 
 class SimilarMovies extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
-      genre: "None",
+      genre: 'None',
       genres: [],
       currentPage: 1,
       pagesTotal:
@@ -21,23 +21,14 @@ class SimilarMovies extends Component {
       neighbors: 4
     };
   }
-  // state = {
-  //   loading: false,
-  //   genre: "None",
-  //   genres: [],
-  //   currentPage: 1,
-  //   pagesTotal: Math.ceil(this.props.similarMovies.movies.length / 20),
-  //   neighbors: 4
-  // };
 
   goToPage = e => {
     this.setState({
-      currentPage: e.target.value
+      currentPage: Number(e.target.dataset.page)
     });
   };
 
   nextPage = () => {
-    console.log("HEKFL");
     if (this.state.currentPage < this.state.pagesTotal)
       this.setState({
         currentPage: this.state.currentPage + 1
@@ -53,13 +44,14 @@ class SimilarMovies extends Component {
   };
 
   setGenre = e => {
+    console.log(e.target.value);
     this.setState({ loading: true });
     this.setState({ genre: e.target.value });
     this.setState({ loading: false });
   };
 
   filterByGenre = (movies, genre) => {
-    if (genre !== "None") {
+    if (genre !== 'None') {
       return movies.filter(movie => movie.genre_ids.includes(Number(genre)));
     } else {
       return movies;
@@ -74,7 +66,7 @@ class SimilarMovies extends Component {
         this.props.similarMovies.movies,
         this.state.genre
       );
-      // movies = this.props.similarMovies.movies;
+
       return (
         <div className="similar-movies">
           <h1>

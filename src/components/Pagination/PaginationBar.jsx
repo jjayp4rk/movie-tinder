@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Pagination, PageItem, PageLink } from "mdbreact";
+import React, { Component } from 'react';
+import { Pagination, PageItem, PageLink } from 'mdbreact';
 
 const makePaginationArray = pagesTotal => {
   let paginationArray = [];
@@ -22,13 +22,8 @@ class PaginationBar extends Component {
     let pagesArray = makePaginationArray(pagesTotal);
 
     const paginationBar = pagesArray.map(page => (
-      <PageItem
-        key={page}
-        active={page === currentPage}
-        onClick={goToPage}
-        value={page}
-      >
-        <PageLink className="page-link">
+      <PageItem key={page} active={page === currentPage}>
+        <PageLink className="page-link" data-page={page} onClick={goToPage}>
           {page} <span className="sr-only" />
         </PageLink>
       </PageItem>

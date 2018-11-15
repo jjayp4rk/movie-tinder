@@ -1,10 +1,10 @@
-import { GET_MOVIES_POPULAR, INCREMENT_PAGE, SET_CARD_INDEX } from "./actions";
+import { GET_MOVIES_POPULAR, INCREMENT_PAGE, SET_CARD_INDEX } from './actions';
 
 const INITIAL_STATE = {
   isFetched: false,
   error: null,
   movies: null,
-  page: Math.floor(Math.random() * 30),
+  page: Math.floor(Math.random() * 10),
   index: 0
 };
 

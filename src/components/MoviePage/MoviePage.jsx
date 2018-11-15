@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import Loading from "../Loading/Loading";
-import { connect } from "react-redux";
-import { getMoviePage } from "./actions";
-import { getMovieTrailer } from "../MovieCard/actions";
-import { POSTER } from "../../constants/api";
-import { Fa } from "mdbreact";
-import "./MoviePage.scss";
-import Icon from "./components/Icon";
-import ReactPlayer from "react-player";
+import React, { Component } from 'react';
+import Loading from '../Loading/Loading';
+import { connect } from 'react-redux';
+import { getMoviePage } from './actions';
+import { getMovieTrailer } from '../MovieCard/actions';
+import { POSTER } from '../../constants/api';
+import { Fa } from 'mdbreact';
+import './MoviePage.scss';
+import Icon from './components/Icon';
+import YouTube from 'react-youtube';
 
 const YouTubeUrl = key => {
   return `https://www.youtube.com/watch?v=${key}`;
@@ -33,13 +33,13 @@ class MoviePage extends Component {
           <div className="movie-page mt-5">
             <div className="player-wrapper">
               {!videos[0].key ? null : (
-                <ReactPlayer
-                  url={YouTubeUrl(videos[0].key)}
-                  width="100%"
-                  height="100%"
-                  config={{
-                    youtube: {
-                      playerVars: { showinfo: 1 }
+                <YouTube
+                  videoId={videos[0].key}
+                  opts={{
+                    height: '100%',
+                    width: '100%',
+                    playerVars: {
+                      autoplay: 0
                     }
                   }}
                 />
