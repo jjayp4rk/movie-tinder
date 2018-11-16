@@ -8,8 +8,8 @@ import reducers from "./reducers";
 const middlewares = [thunk, promiseMiddleware()];
 
 const enhancers = compose(
-  applyMiddleware(...middlewares),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  applyMiddleware(...middlewares)
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 // let store = createStore(reducers, undefined, enhancers);
