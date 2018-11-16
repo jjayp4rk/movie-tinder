@@ -9,10 +9,6 @@ import './MoviePage.scss';
 import Icon from './components/Icon';
 import YouTube from 'react-youtube';
 
-const YouTubeUrl = key => {
-  return `https://www.youtube.com/watch?v=${key}`;
-};
-
 class MoviePage extends Component {
   state = { loading: true };
 

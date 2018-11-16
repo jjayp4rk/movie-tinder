@@ -6,12 +6,13 @@ $blue1: #3891a6;
 $blue2: #23395b;
 
 .filter-bar {
-  color: $orange;
+  margin-bottom: 10px;
+  color: $yellow;
   select {
     background: transparent;
     background-color: transparent;
-    color: $orange;
-    border: 1px solid $orange;
+    color: $yellow;
+    border: 1px solid $yellow;
     font-weight: none;
     padding-left: 5px;
   }

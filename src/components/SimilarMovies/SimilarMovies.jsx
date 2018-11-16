@@ -13,7 +13,7 @@ class SimilarMovies extends Component {
     super(props);
     this.state = {
       loading: false,
-      genre: 'None',
+      genre: 'All',
       genres: [],
       currentPage: 1,
       neighbors: 4

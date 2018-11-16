@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -8,8 +8,8 @@ import {
   NavItem,
   NavLink,
   Fa
-} from "mdbreact";
-import "./Navbar.scss";
+} from 'mdbreact';
+import './Navbar.scss';
 
 class NavigationBar extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class NavigationBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="unique-color-dark" dark expand="md" scrolling>
+        <Navbar color="special-color-dark" dark expand="md" scrolling>
           <NavbarBrand onClick={this.navItemToggle} name="0" href="/">
             <strong>
               MOVIE <Fa icon="heart" /> TINDER

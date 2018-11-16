@@ -11,10 +11,10 @@ const FilterBar = ({ setGenre }) => {
         <option value="12">Adventure🌳</option>
         <option value="16">Animation👾</option>
         <option value="35">Comedy😂</option>
-        <option value="80">Crime👮‍♂️</option>
+        <option value="80">Crime👮‍</option>
         <option value="99">Documentary📰</option>
         <option value="18">Drama👺</option>
-        <option value="14">Fantasy🧚🏻‍♀️</option>
+        <option value="14">Fantasy🧚🏻‍</option>
         <option value="10751">Family👨‍👩‍👧‍👦</option>
         <option value="36">History🏇</option>
         <option value="27">Horror👻</option>

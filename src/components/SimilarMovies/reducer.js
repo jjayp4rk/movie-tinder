@@ -1,4 +1,4 @@
-import { GET_MOVIES_SIMILAR, GET_MOVIES_SIMILAR_FIRST } from './actions';
+import { GET_MOVIES_SIMILAR } from './actions';
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {

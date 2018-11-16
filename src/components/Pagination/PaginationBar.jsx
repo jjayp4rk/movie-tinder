@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Pagination, PageItem, PageLink } from "mdbreact";
-import "./PaginationBar.scss";
+import React, { Component } from 'react';
+import { Pagination, PageItem, PageLink } from 'mdbreact';
+import './PaginationBar.scss';
 
 const makePaginationArray = pagesTotal => {
   let paginationArray = [];
@@ -14,7 +14,6 @@ class PaginationBar extends Component {
   render() {
     const {
       goToFirst,
-      goToLast,
       nextPage,
       prevPage,
       goToPage,
