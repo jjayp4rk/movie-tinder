@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
+import './FilterBar.scss';
 
 const FilterBar = ({ setGenre }) => {
   return (
     <div className="filter-bar">
+      GENRE:{' '}
       <select name="genre" onChange={setGenre}>
-        <option>None</option>
+        <option>All</option>
         <option value="28">Action🦸</option>
         <option value="12">Adventure🌳</option>
         <option value="16">Animation👾</option>

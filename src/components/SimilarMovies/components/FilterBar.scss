@@ -1,0 +1,22 @@
+$black: #13191c;
+$yellow: #fccf74;
+$orange: #e3655b;
+$pink: #db5461;
+$blue1: #3891a6;
+$blue2: #23395b;
+
+.filter-bar {
+  color: $orange;
+  select {
+    background: transparent;
+    background-color: transparent;
+    color: $orange;
+    border: 1px solid $orange;
+    font-weight: none;
+    padding-left: 5px;
+  }
+  option {
+    background-color: $black;
+    text-align: center;
+  }
+}

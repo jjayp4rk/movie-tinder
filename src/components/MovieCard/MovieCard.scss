@@ -25,3 +25,24 @@
     }
   }
 }
+
+.card-front {
+  p {
+    height: 5px;
+    font-size: 14px;
+  }
+}
+
+// .card-front {
+//   p {
+//     position: absolute;
+//     top: 90%;
+//     left: 50%;
+//     transform: translate(-50%, -90%);
+//     background-color: transparent;
+//     font-weight: bold;
+//     color: white;
+//     font-size: 3vw;
+//     width: 40%;
+//   }
+// }

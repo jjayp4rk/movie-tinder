@@ -61,7 +61,7 @@ class SimilarMovies extends Component {
   };
 
   filterByGenre = (movies, genre) => {
-    if (genre !== 'None') {
+    if (genre !== 'All') {
       return movies.filter(movie => movie.genre_ids.includes(Number(genre)));
     } else {
       return movies;
@@ -80,7 +80,7 @@ class SimilarMovies extends Component {
       return (
         <div className="similar-movies">
           <h1>
-            <Fa icon="star" color="#db5461" /> MOVIES
+            <Fa icon="star" color="#db5461" /> MOVIES YOU MIGHT LIKE
           </h1>
           <FilterBar setGenre={this.setGenre} />
           <SimilarMoviesList

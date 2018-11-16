@@ -10,6 +10,7 @@ const Front = ({ movie }) => {
         src={`${POSTER}/${movie.poster_path}`}
         waves
       />
+      <p> Click for Trailer</p>
     </div>
   );
 };
