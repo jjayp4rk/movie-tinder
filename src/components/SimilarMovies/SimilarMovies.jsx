@@ -16,11 +16,21 @@ class SimilarMovies extends Component {
       genre: 'None',
       genres: [],
       currentPage: 1,
-      pagesTotal:
-        null || Math.ceil(this.props.similarMovies.movies.length / 20),
       neighbors: 4
     };
   }
+
+  goToFirst = () => {
+    this.setState({
+      currentPage: 1
+    });
+  };
+
+  goToLast = lastPage => {
+    this.setState({
+      currentPage: lastPage
+    });
+  };
 
   goToPage = e => {
     this.setState({
@@ -29,10 +39,9 @@ class SimilarMovies extends Component {
   };
 
   nextPage = () => {
-    if (this.state.currentPage < this.state.pagesTotal)
-      this.setState({
-        currentPage: this.state.currentPage + 1
-      });
+    this.setState({
+      currentPage: this.state.currentPage + 1
+    });
   };
 
   prevPage = () => {
@@ -47,6 +56,7 @@ class SimilarMovies extends Component {
     console.log(e.target.value);
     this.setState({ loading: true });
     this.setState({ genre: e.target.value });
+    this.setState({ currentPage: 1 });
     this.setState({ loading: false });
   };
 
@@ -81,7 +91,9 @@ class SimilarMovies extends Component {
           />
           <PaginationBar
             currentPage={this.state.currentPage}
-            pagesTotal={this.state.pagesTotal}
+            pagesTotal={Math.ceil(movies.length / 20)}
+            goToFirst={this.goToFirst}
+            goToLast={this.goToLast}
             nextPage={this.nextPage}
             prevPage={this.prevPage}
             goToPage={this.goToPage}

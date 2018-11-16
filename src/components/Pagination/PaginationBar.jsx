@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Pagination, PageItem, PageLink } from 'mdbreact';
+import './PaginationBar.scss';
 
 const makePaginationArray = pagesTotal => {
   let paginationArray = [];
@@ -12,6 +13,8 @@ const makePaginationArray = pagesTotal => {
 class PaginationBar extends Component {
   render() {
     const {
+      goToFirst,
+      goToLast,
       nextPage,
       prevPage,
       goToPage,
@@ -19,10 +22,19 @@ class PaginationBar extends Component {
       pagesTotal
     } = this.props;
 
-    let pagesArray = makePaginationArray(pagesTotal);
+    let pagesArray;
+
+    if (2 < currentPage) {
+      pagesArray = makePaginationArray(pagesTotal).slice(
+        currentPage - 3,
+        currentPage + 2
+      );
+    } else {
+      pagesArray = makePaginationArray(pagesTotal).slice(0, 5);
+    }
 
     const paginationBar = pagesArray.map(page => (
-      <PageItem key={page} active={page === currentPage}>
+      <PageItem key={page} active={page === currentPage} data-page={page}>
         <PageLink className="page-link" data-page={page} onClick={goToPage}>
           {page} <span className="sr-only" />
         </PageLink>
@@ -30,25 +42,34 @@ class PaginationBar extends Component {
     ));
     return (
       <div className="pagination-bar">
-        <Pagination className="pagination-circle-large">
-          <PageLink className="page-link">
-            <span>First</span>
-          </PageLink>
+        <Pagination>
           <PageItem disabled={currentPage === 1 ? true : false}>
-            <PageLink aria-label="Previous" onClick={prevPage}>
+            <PageLink className="page-link" onClick={goToFirst}>
+              <span>First</span>
+            </PageLink>
+          </PageItem>
+          <PageItem disabled={currentPage === 1 ? true : false}>
+            <PageLink onClick={prevPage}>
               <span aria-hidden="true">&laquo;</span>
-              <span className="sr-only">Previous</span>
             </PageLink>
           </PageItem>
           {paginationBar}
-          <PageItem onClick={nextPage}>
-            <PageLink className="page-link" onClick={nextPage}>
-              &raquo;
+          <PageItem
+            disabled={currentPage === pagesTotal ? true : false}
+            onClick={nextPage}
+          >
+            <PageLink>
+              <span aria-hidden="true">&raquo;</span>
             </PageLink>
           </PageItem>
-          <PageLink className="page-link">
-            <span>Last</span>
-          </PageLink>
+          {/* <PageItem disabled={currentPage === pagesTotal ? true : false}>
+            <PageLink
+              className="page-link"
+              onClick={() => goToLast(pagesTotal)}
+            >
+              <span>Last</span>
+            </PageLink>
+          </PageItem> */}
         </Pagination>
       </div>
     );
