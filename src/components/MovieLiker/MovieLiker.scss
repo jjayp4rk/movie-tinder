@@ -1,7 +1,8 @@
 .movie-liker {
   margin-left: auto;
   margin-right: auto;
-  padding-top: 20%;
+  padding-top: 15%;
+  padding-bottom: 10%;
   .btn {
     border-radius: 50%;
     height: 60px;
@@ -23,13 +24,10 @@
   width: 50%;
   max-width: 450px;
   min-width: 300px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  // margin-left: auto;
-  // margin-right: auto;
-  // margin-top: 15%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10%;
+  padding-top: 15%;
   .btn {
     border-radius: 50%;
     width: 65px;
@@ -44,8 +42,8 @@
     background-color: rgba(214, 214, 214, 0.3);
   }
   img {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     border-radius: 40px;
   }
 }
