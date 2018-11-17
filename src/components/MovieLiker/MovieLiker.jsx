@@ -57,18 +57,16 @@ class MovieLiker extends Component {
     }
     return (
       <div className="movie-liker">
-        <div>
-          <MovieCard movie={movies[this.state.cardIndex]} />
-          <br />
-          <span>
-            <Button color="success" onClick={this._clickLikeButton}>
-              <Fa icon="heart" size="2x" />
-            </Button>
-            <Button color="danger" onClick={this._clickDislikeButton}>
-              <Fa icon="close" size="3x" />
-            </Button>
-          </span>
-        </div>
+        <MovieCard movie={movies[this.state.cardIndex]} />
+        <br />
+        <span>
+          <Button color="success" onClick={this._clickLikeButton}>
+            <Fa icon="heart" size="2x" />
+          </Button>
+          <Button color="danger" onClick={this._clickDislikeButton}>
+            <Fa icon="close" size="3x" />
+          </Button>
+        </span>
       </div>
     );
   }
