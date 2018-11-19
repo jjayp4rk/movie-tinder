@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getMovieTrailer } from './actions';
-import Front from './components/Front';
-import Back from './components/Back';
-import { Card } from 'mdbreact';
-import './MovieCard.scss';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getMovieTrailer } from "./actions";
+import Front from "./components/Front";
+import Back from "./components/Back";
+import { Card } from "mdbreact";
+import "./MovieCard.scss";
 
 class MovieCard extends Component {
   state = { isFlipped: false };
@@ -27,7 +27,6 @@ class MovieCard extends Component {
 
   render() {
     const { isFlipped } = this.state;
-    console.log(this.props);
     return (
       <div className="movie-card">
         <Card onClick={this.handleClick}>

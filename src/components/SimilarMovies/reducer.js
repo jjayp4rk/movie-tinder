@@ -1,4 +1,4 @@
-import { GET_MOVIES_SIMILAR } from './actions';
+import { GET_MOVIES_SIMILAR } from "./actions";
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -28,7 +28,10 @@ export default (state = INITIAL_STATE, action) => {
       let filteredMovies = [
         ...new Set(unfilteredMovies.map(v => JSON.stringify(v)))
       ].map(v => JSON.parse(v));
-
+      // let filteredMovies = [
+      //   ...new Map(unfilteredMovies.map(o => [JSON.stringify(o), o])).values()
+      // ];
+      console.log(filteredMovies);
       let movies;
 
       if (state.length !== filteredMovies.length) {

@@ -8,13 +8,11 @@ import reducers from "./reducers";
 const middlewares = [thunk, promiseMiddleware()];
 
 const enhancers = compose(
-  applyMiddleware(...middlewares)
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  applyMiddleware(...middlewares),
+  typeof window === "object" && typeof window.devToolsExtension !== "undefined"
+    ? window.devToolsExtension()
+    : f => f
 );
-
-// let store = createStore(reducers, undefined, enhancers);
-
-// export default store;
 
 const persistConfig = {
   key: "root",
